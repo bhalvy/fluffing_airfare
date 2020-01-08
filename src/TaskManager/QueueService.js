@@ -1,6 +1,5 @@
 'use strict';
 const _ = require('lodash');
-const EventEmitter = require('events');
 const CronJob = require('cron').CronJob;
 const config = require('../../public/configuration');
 
