@@ -5,9 +5,8 @@ const config = require('../../public/configuration');
 
 const PotentialTrip = require('../PotentialTrip');
 
-class QueueService extends EventEmitter {
+class QueueService {
     constructor() {
-        super();
         this.queue = [];
         this.polling = [];
         this.results = [];
@@ -41,7 +40,7 @@ class QueueService extends EventEmitter {
         const poll = new CronJob("* * * * * *", async() => {
             this.processQueue()
         }, null, true, 'America/Los_Angeles');
-        return this.polling.push(poll)
+        this.polling.push(poll)
     }
 
     async processQueue() {
